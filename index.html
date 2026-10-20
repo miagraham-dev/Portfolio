@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mia Graham | Marketing Portfolio</title>
+  <meta name="description" content="Mia Graham: MS Marketing (analytics) student at UT Austin McCombs. Entry-level consumer insights, marketing analytics, and brand management. Selected work and contact.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%236b5b95'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='26' font-weight='700' fill='%23faf9f7' text-anchor='middle'%3EMG%3C/text%3E%3C/svg%3E">
+  <style>
+    :root {
+      --bg: #faf9f7;        /* off-white */
+      --ink: #24212b;       /* near-black text */
+      --muted: #5e5a66;     /* secondary text */
+      --accent: #6b5b95;    /* muted deep purple: links, buttons, highlights */
+      --soft: #eeebf4;      /* pale lavender: cards */
+      --lav-deep: #cdc4de;  /* mid lavender: comparison bars */
+      --line: #e6e2ec;      /* hairlines */
+      --max: 740px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-underline-offset: 3px; }
+    a:hover { color: var(--ink); }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+    /* Header */
+    header { padding: 28px 0; border-bottom: 1px solid var(--line); }
+    header .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .brand { font-family: "DM Sans", system-ui, sans-serif; font-weight: 600; font-size: 1.15rem; color: var(--ink); text-decoration: none; }
+    nav { display: flex; gap: 22px; }
+    nav a { color: var(--muted); text-decoration: none; font-size: 0.95rem; font-weight: 500; }
+    nav a:hover { color: var(--accent); }
+
+    /* Hero */
+    .hero { padding: 88px 24px 64px; }
+    h1 {
+      font-family: "DM Sans", system-ui, sans-serif;
+      font-weight: 600;
+      font-size: clamp(2.3rem, 6vw, 3.4rem);
+      line-height: 1.12;
+      margin: 0 0 20px;
+      letter-spacing: -0.02em;
+    }
+    .lede { font-size: 1.15rem; color: var(--muted); max-width: 580px; margin: 0 0 32px; }
+    .btn {
+      display: inline-block; padding: 12px 22px; border-radius: 4px;
+      font-weight: 600; font-size: 0.95rem; text-decoration: none;
+      background: var(--accent); color: #fff; border: 2px solid var(--accent);
+      transition: background .15s, color .15s;
+    }
+    .btn:hover { background: transparent; color: var(--accent); }
+    .btn.ghost { background: transparent; color: var(--ink); border-color: var(--lav-deep); margin-left: 8px; }
+    .btn.ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* Sections */
+    section { padding: 56px 0; border-top: 1px solid var(--line); }
+    h2 {
+      font-family: "DM Sans", system-ui, sans-serif; font-weight: 600;
+      font-size: 1.6rem; margin: 0 0 24px;
+    }
+    h2::after { content: ""; display: block; width: 36px; height: 3px; background: var(--accent); margin-top: 10px; border-radius: 2px; }
+    p { margin: 0 0 16px; }
+
+    /* Case study */
+    .case { background: var(--soft); border-radius: 8px; padding: 36px 32px; margin-bottom: 28px; }
+    .case h3 { font-family: "DM Sans", system-ui, sans-serif; font-weight: 600; font-size: 1.55rem; line-height: 1.25; margin: 0 0 10px; }
+    .meta { color: var(--muted); font-size: 0.9rem; margin-bottom: 8px; }
+    .case h4 {
+      font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em;
+      color: var(--accent); margin: 30px 0 8px;
+    }
+    .case ul, .case ol { margin: 0 0 16px; padding-left: 20px; }
+    .case li { margin-bottom: 8px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 28px 0 0; padding: 0; list-style: none; }
+    .tags li { background: var(--bg); border-radius: 4px; padding: 3px 12px; font-size: 0.82rem; font-weight: 500; margin: 0; }
+    .small { font-size: 0.9rem; color: var(--muted); }
+
+    /* Before/after bars */
+    .legend { display: flex; gap: 20px; flex-wrap: wrap; font-size: 0.85rem; color: var(--muted); margin: 6px 0 14px; }
+    .legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+    .metric { margin-bottom: 18px; }
+    .m-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 600; font-size: 0.95rem; margin-bottom: 5px; }
+    .delta { color: var(--accent); font-size: 0.88rem; white-space: nowrap; }
+    .delta.flat { color: var(--muted); }
+    .bar { height: 24px; border-radius: 3px; margin-bottom: 4px; display: flex; align-items: center; padding: 0 10px; font-size: 0.8rem; font-weight: 600; }
+    .bar.before { background: var(--lav-deep); color: var(--ink); }
+    .bar.after { background: var(--accent); color: #fff; }
+
+    /* Second project (lighter card) */
+    .project { border: 1px dashed var(--line); border-radius: 8px; padding: 28px; }
+    .project h3 { font-family: "DM Sans", system-ui, sans-serif; font-weight: 600; font-size: 1.3rem; margin: 0 0 6px; }
+    .project dl { margin: 0; }
+    .project dt { font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); margin-top: 14px; }
+    .project dd { margin: 4px 0 0; }
+
+    /* Contact */
+    .contact-list { list-style: none; padding: 0; margin: 0; }
+    .contact-list li { margin-bottom: 8px; }
+    .contact-list span { display: inline-block; min-width: 90px; color: var(--muted); }
+
+    footer { padding: 32px 0 48px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.88rem; }
+
+    @media (max-width: 520px) {
+      body { font-size: 16px; }
+      .hero { padding: 56px 24px 44px; }
+      .btn.ghost { margin-left: 0; margin-top: 10px; }
+      .case { padding: 26px 20px; }
+      .project { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="wrap">
+      <a class="brand" href="#top">Mia Graham</a>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <div class="wrap hero">
+      <h1>Mia Graham</h1>
+      <p class="lede">MS Marketing student at UT Austin's McCombs School of Business, graduating May 2027. Excited to apply my skills in entry-level roles in consumer insights, marketing analytics, and brand management.</p>
+      <a class="btn" href="#work">See my work</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/miacgraham">LinkedIn</a>
+    </div>
+
+    <section id="about">
+      <div class="wrap">
+        <h2>About</h2>
+        <p>I'm completing my MS in Marketing at UT Austin's McCombs School of Business, a program built around analytics and AI. I earned my BA in Communication from the University of Alabama in May 2026, with minors in math and chemistry.</p>
+        <p>I learned I wanted to work in marketing through my role as VP of Member Experience for Sigma Kappa at Alabama, where I surveyed members on what mattered to them, found the gaps holding the chapter back, and built a brand strategy around them. That work is the second case study below.</p>
+        <p>During summer 2025, I interned at Frito-Lay, where I worked with sales and ordering data in a CPG setting. Beyond my project, I got a close look at how a major snack company tracks and responds to changing consumer demand. In stores and in sales dashboards, I saw how what sold shifted by store format, season, promotion, and shelf placement. I was also there for the push toward health-conscious snacking, including internal discussions about protein options and the Simply NKD line of Doritos and Cheetos without artificial colors or flavors. My project looked at why sales reps weren't fully using a new digital ordering system and what would change that, combining field research, survey design, and dashboard analysis in Excel and Power BI. It's the first case study below.</p>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="wrap">
+        <h2>Selected work</h2>
+
+        <article class="case">
+          <h3>Why Frito-Lay reps weren't using the ordering system, and what changed their behavior</h3>
+          <div class="meta">Frito-Lay (PepsiCo) · Sales Intern, sales management team, Greater Virginia Zone · June to August 2025</div>
+
+          <h4>Context</h4>
+          <p>Frito-Lay's precision ordering (PO) initiative aims to make each store order match what the shelf actually needs, to reduce backstock and stales and help execute sales plans. Its newest piece, digital planogram ordering (DPO), builds orders from a digital planogram, the map of what belongs on each shelf. Reps tap the "holes" where product is missing, scan backstock, and the system suggests an order. Both only work when reps enter accurate, complete information. My project covered precision ordering broadly and the new DPO system specifically. On the routes I worked with, DPO compliance was about 53%.</p>
+
+          <h4>Question</h4>
+          <p>Why weren't reps following the precision ordering process and using the new DPO system as intended, and what would raise compliance?</p>
+
+          <h4>What I found</h4>
+          <p>I rode routes with reps to learn the job and the app, reviewed compliance data in Power BI and Excel, and talked with experienced reps and managers. Three barriers came up:</p>
+          <ul>
+            <li><strong>Understanding.</strong> Reps didn't fully understand how the system turned their input into an order, or why accurate, organized input mattered.</li>
+            <li><strong>Incentive.</strong> Nothing rewarded them for changing a routine that already worked for them.</li>
+            <li><strong>Trust.</strong> Some found the idea of a computer doing the ordering off-putting, especially amid broader concerns about AI and the job market.</li>
+          </ul>
+
+          <h4>What I did</h4>
+          <ul>
+            <li>Used office-wide compliance data in Power BI to decide where to focus. Small-format routes were less compliant on average than bulk routes, so I targeted them for coaching.</li>
+            <li>Ran a presentation explaining how the system generates orders, with practical tips.</li>
+            <li>Wrote one-page tip sheets, posted at the distribution center and placed in every rep's mailbox.</li>
+            <li>Ran in-store work-withs (coaching on live routes) on four routes.</li>
+            <li>Set up a friendly competition with small rewards for the most improved adjustment compliance.</li>
+            <li>Surveyed reps afterward and got 30 responses.</li>
+          </ul>
+
+          <h4>Results</h4>
+          <p>I compared a 12-week baseline with the four weeks after the work-withs on the four routes I coached. Changes are in percentage points.</p>
+          <div class="legend">
+            <span><i style="background:var(--lav-deep)"></i>Before (12-week baseline)</span>
+            <span><i style="background:var(--accent)"></i>After (4 weeks)</span>
+          </div>
+
+          <!-- Confirm this definition if you can; it's also on your résumé. -->
+          <div class="metric">
+            <div class="m-head"><span>Perfect order compliance (composite of the measures below)</span><span class="delta">+7.7 pts</span></div>
+            <div class="bar before" style="width:42.7%">42.7%</div>
+            <div class="bar after" style="width:50.4%">50.4%</div>
+          </div>
+          <div class="metric">
+            <div class="m-head"><span>Holes scanned</span><span class="delta">+6.9 pts</span></div>
+            <div class="bar before" style="width:54.7%">54.7%</div>
+            <div class="bar after" style="width:61.6%">61.6%</div>
+          </div>
+          <div class="metric">
+            <div class="m-head"><span>Backstock scanned</span><span class="delta">+4.3 pts</span></div>
+            <div class="bar before" style="width:44.3%">44.3%</div>
+            <div class="bar after" style="width:48.6%">48.6%</div>
+          </div>
+          <div class="metric">
+            <div class="m-head"><span>Adjustment compliance</span><span class="delta">+4.0 pts</span></div>
+            <div class="bar before" style="width:75.6%">75.6%</div>
+            <div class="bar after" style="width:79.6%">79.6%</div>
+          </div>
+          <div class="metric">
+            <div class="m-head"><span>Orders left unadjusted</span><span class="delta">+1.3 pts</span></div>
+            <div class="bar before" style="width:86.2%">86.2%</div>
+            <div class="bar after" style="width:87.5%">87.5%</div>
+          </div>
+          <div class="metric">
+            <div class="m-head"><span>Overall DPO compliance</span><span class="delta flat">+0.2 pts (essentially flat)</span></div>
+            <div class="bar before" style="width:53%">53.0%</div>
+            <div class="bar after" style="width:53.2%">53.2%</div>
+          </div>
+
+          <p>In the survey, 24 of 30 reps rated the training "very helpful," 5 "somewhat," and 1 "no." Analyzing the survey data, I found that reps who used the system more often also tended to trust its orders more. I tested this with a Spearman rank correlation, which suits survey scales where the gaps between "sometimes," "usually," and "always" can't be assumed equal.</p>
+          <!-- If you can recover the coefficient, add it to the sentence above, e.g. "(rho = 0.xx, n = 30)". -->
+
+          <h4>Where the gap persisted</h4>
+          <p>Routes are split into UDS ("up and down the street": convenience and smaller grocery stores) and bulk (large-format stores like Sam's Club). UDS routes lagged bulk routes on every measure, which is why I targeted them. After the work-withs, holes scanned on UDS routes improved, but backstock scanning stayed low (roughly 22% against roughly 66% for bulk). That is why I recommended continuing to prioritize UDS routes, with a focus on backstock.</p>
+          <!-- Verify the UDS vs. bulk figures against your chart data before publishing. -->
+
+          <h4>Limits of this analysis</h4>
+          <p>This was an uncontrolled field setting: there was no comparison group, the follow-up window was four weeks, and I ran several interventions at once. So I can't attribute the gains to any single intervention, or rule out other factors, such as seasonal changes in volume, behind them. The headline compliance number barely moved, which tells me the work-withs changed scanning habits more than how reps interact with planograms.</p>
+
+          <h4>What I'd do next</h4>
+          <ul>
+            <li>Roll coaching out in stages across routes, so later groups serve as a comparison.</li>
+            <li>Focus coaching on backstock scanning on UDS routes, where the gap is largest.</li>
+            <li>Track whether the gains hold beyond four weeks, and keep reinforcing the behaviors that worked.</li>
+          </ul>
+
+          <ul class="tags">
+            <li>Field research</li>
+            <li>Survey design</li>
+            <li>Excel</li>
+            <li>Power BI</li>
+            <li>Rank-based correlation</li>
+            <li>Behavior change</li>
+          </ul>
+        </article>
+
+        <article class="case">
+          <h3>Why a new chapter's reputation was driving most of its other problems</h3>
+          <div class="meta">Sigma Kappa, University of Alabama · VP of Member Experience, November 2023 to November 2024 · Survey conducted summer 2024</div>
+
+          <h4>Context</h4>
+          <p>Sigma Kappa was a newly established chapter on one of the most competitive Greek campuses in the country, without housing comparable to other chapters, and COVID-19 hit during a critical growth phase. The chapter struggled with low visibility, inconsistent branding, and recruitment, and many members felt their experience fell short of what they had expected. Internal operations were stretched thin, time and budget were limited, and leadership didn't yet have a shared strategy for what to fix first.</p>
+
+          <h4>Question</h4>
+          <p>Where did members think the chapter was falling short, and which gaps mattered most to them?</p>
+
+          <h4>My role</h4>
+          <p>I designed the survey, ran the analysis, and led a 14-person team on the strategy. A teammate assembled the final presentation for the executive council and advisory board.</p>
+
+          <h4>Approach</h4>
+          <p>For each of 11 areas of chapter life, the survey asked two questions on a 1–5 scale: how well does the chapter do this, and how much does it matter to you? Pairing the two, a method called importance-performance analysis, turns a list of complaints into a ranked set of priorities. Each area also had space for open-ended comments, so the ratings came with members' own explanations and ideas.</p>
+          <ul>
+            <li>About 100 of the chapter's roughly 165 members responded (about 60%).</li>
+            <li>I benchmarked our branding and events against peer chapters. For social media, a teammate and I logged each post by date and type (holiday, date party, sisterhood event, member accomplishment) in Google Sheets to compare content mix and posting frequency.</li>
+            <li>For each area, we listed the specific issues, traced their causes, and matched solutions to those causes.</li>
+            <li>We combined it all into a strategic assessment for the executive council and advisory board.</li>
+          </ul>
+
+          <h4>What the data showed</h4>
+          <p>Campus reputation was members' weakest area and one of their two highest priorities.</p>
+          <div class="legend">
+            <span><i style="background:var(--lav-deep)"></i>How well the chapter does it</span>
+            <span><i style="background:var(--accent)"></i>How much it matters</span>
+          </div>
+          <div class="metric">
+            <div class="m-head"><span>Campus reputation (1–5 scale)</span><span class="delta">2.73-point gap</span></div>
+            <div class="bar before" style="width:34.6%">1.73</div>
+            <div class="bar after" style="width:89.2%">4.46</div>
+          </div>
+          <p>Recruitment, social media, and Panhellenic involvement followed the same pattern: they mattered a lot and scored low. Chapter programming and financial transparency mattered least to members, so they could wait.</p>
+          <p>Recruitment data from the previous fall told the same story from the outside. The chapter was allowed to invite every potential new member back each round and released only about 100 across all rounds, so our own cuts weren't what kept us under quota. Of the 247 women at our final round, 96 (about 39%) listed only another chapter on their final ballot, meaning they would rather risk getting no bid at all than join ours. Only 53 (about 21%) ranked us first. The problem was demand, which made reputation the lever that mattered.</p>
+
+          <h4>Key insights</h4>
+          <ul>
+            <li><strong>The problems were one cycle.</strong> A weak reputation made recruitment harder, so the chapter focused on filling its numbers. Without a shared sense of who the chapter was for, its identity stayed inconsistent, which kept the reputation weak. The members who could have changed the chapter's image were also the most likely to self-select out.</li>
+            <li><strong>The experience didn't match the promise.</strong> Many members joined expecting the polished experience recruitment showed them. When the reality fell short, it showed up as disappointment, negativity, and members leaving.</li>
+            <li><strong>Members split into two groups.</strong> One group felt things were fine, and a larger group wanted the chapter to improve. They needed different messages, and change aimed only at the second group felt like criticism to the first.</li>
+          </ul>
+
+          <h4>Recommendations</h4>
+          <p>The assessment covered all 11 areas. In hindsight, I would have led with the four actions aimed at the biggest gaps:</p>
+          <ol>
+            <li><strong>Recruit for the identity the chapter wants to build.</strong> A brand attracts people who see themselves in it or aspire to it. The women who could have shifted the chapter's image didn't see themselves in it yet, so they were the most likely to opt out. During recruitment, pair the strongest recruiters with women who are on the fence. Afterward, keep extending bids to them even when they're lukewarm on bid day, and invest in keeping them through the first semester.</li>
+            <li><strong>Set brand standards.</strong> Content pillars, a posting calendar, visual templates, and guidelines for how members represent the chapter in person and online.</li>
+            <li><strong>Build Panhellenic relationships.</strong> More joint events with other chapters, and showing up at theirs, so the chapter becomes part of the campus community instead of sitting outside it.</li>
+            <li><strong>Close the promise gap for new members.</strong> Deliver what recruitment promised in the first semester, communicate clearly, and check in with members who are thinking about leaving.</li>
+          </ol>
+
+          <h4>Outcome</h4>
+          <p>The chapter's branding moved in a clear direction. Our strongest content got noticeably better, and events started to look genuinely polished, with more current theming. The assessment gave the executive council and advisory board an evidence-based, ranked view of where to focus, built from members' own priorities, and advisors responded well to it. I took on the role in late 2023, after these challenges had been building for years. One year wasn't enough to reverse them, but it gave the chapter a clear, evidence-based starting point.</p>
+          <!-- If you have a concrete number (follower or engagement growth, retention), add it to the paragraph above. -->
+
+          <h4>What I learned</h4>
+          <ul>
+            <li><strong>Fewer, clearer recommendations get acted on.</strong> Four actions with clear owners are easier to act on than a complete list.</li>
+            <li><strong>Bring stakeholders in early.</strong> People who help shape a plan support it. People who first see it as a finished critique of their area get defensive.</li>
+            <li><strong>Short-term volume can cost long-term brand equity.</strong> Growing membership quickly without a clear identity made the reputation harder to rebuild. Consumer brands face the same trade-off when they discount too often or stretch into too many lines.</li>
+          </ul>
+
+          <ul class="tags">
+            <li>Survey design</li>
+            <li>Importance-performance analysis</li>
+            <li>Segmentation</li>
+            <li>Root-cause analysis</li>
+            <li>Content analysis</li>
+            <li>Brand strategy</li>
+            <li>Stakeholder management</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <h2>Contact</h2>
+        <p>The best way to reach me is a message on <a href="https://www.linkedin.com/in/miacgraham">LinkedIn</a>. My résumé is available on request.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">© <span id="yr"></span> Mia Graham</div>
+  </footer>
+
+  <script>document.getElementById("yr").textContent = new Date().getFullYear();</script>
+</body>
+</html>
