@@ -1,0 +1,850 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mia Graham | Marketing Portfolio</title>
+  <meta name="description" content="Mia Graham: MS Marketing student at UT Austin McCombs. Case studies in consumer insights, marketing analytics, and brand strategy.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@600;700&family=Figtree:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23ddd3f3'/%3E%3Ctext x='32' y='43' font-family='Arial,sans-serif' font-size='26' font-weight='700' fill='%23211f26' text-anchor='middle'%3EMG%3C/text%3E%3C/svg%3E">
+  <style>
+    :root {
+      --bg: #fdfcfa;        /* warm white */
+      --cream: #f6f2ea;     /* cream sections */
+      --cream-2: #ece6db;   /* shelf edges, quiet fills */
+      --lav-50: #f5f2fb;
+      --lav-100: #ece6f8;
+      --lav-200: #ddd3f3;
+      --lav-300: #cbbdec;
+      --lav-400: #ad9ade;   /* strongest lavender: chart highlights only */
+      --ink: #211f26;
+      --muted: #5f5b66;
+      --white: #ffffff;
+
+      --display: "League Spartan", "Futura", "Century Gothic", system-ui, sans-serif;
+      --text: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --wrap: 1120px;
+      --gutter: clamp(20px, 3vw, 40px);
+      --radius: 14px;
+      --ease: cubic-bezier(.2,.7,.2,1);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--text); font-size: 1.0625rem; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: var(--ink); text-decoration-color: var(--lav-400); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+    a:hover { text-decoration-color: var(--ink); }
+    :focus-visible { outline: 3px solid var(--lav-400); outline-offset: 3px; border-radius: 4px; }
+    ::selection { background: var(--lav-200); }
+    h1, h2, h3 { font-family: var(--display); font-weight: 700; line-height: 1.05; letter-spacing: -0.025em; margin: 0; }
+    p { margin: 0 0 1em; }
+    .wrap { width: min(var(--wrap), 100% - 2 * var(--gutter)); margin-inline: auto; }
+    .muted { color: var(--muted); }
+    [hidden] { display: none !important; }
+
+    /* Header */
+    .site-head { position: sticky; top: 0; z-index: 20; background: var(--bg); transition: box-shadow .2s; }
+    .site-head.scrolled { box-shadow: 0 1px 0 var(--cream-2); }
+    .site-head .wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .logo { width: 44px; height: 44px; border-radius: 12px; background: var(--lav-200); display: grid; place-items: center; font-family: var(--display); font-weight: 700; font-size: 1.05rem; text-decoration: none; padding-top: 2px; transition: transform .2s var(--ease), background .2s; }
+    .logo:hover { transform: rotate(-6deg); background: var(--lav-300); }
+    .site-head nav { display: flex; align-items: center; gap: 28px; }
+    .site-head nav a:not(.btn) { text-decoration: none; font-weight: 500; position: relative; }
+    .site-head nav a:not(.btn)::after { content: ""; position: absolute; left: 0; right: 0; bottom: -4px; height: 3px; border-radius: 2px; background: var(--lav-300); transform: scaleX(0); transform-origin: left; transition: transform .25s var(--ease); }
+    .site-head nav a:not(.btn):hover::after { transform: scaleX(1); }
+
+    /* Buttons */
+    .btn { display: inline-flex; align-items: center; gap: 10px; padding: 13px 22px; border-radius: 999px; font-weight: 600; font-size: 1rem; text-decoration: none; border: 0; cursor: pointer; transition: transform .18s var(--ease), background .18s; }
+    .btn .arr { transition: transform .2s var(--ease); }
+    .btn:hover .arr { transform: translateX(4px); }
+    .btn:active { transform: scale(.97); }
+    .btn-lav { background: var(--lav-200); color: var(--ink); }
+    .btn-lav:hover { background: var(--lav-300); }
+    .btn-soft { background: var(--cream); color: var(--ink); }
+    .btn-soft:hover { background: var(--cream-2); }
+    .btn-ink { background: var(--ink); color: var(--white); }
+    .btn-ink:hover { background: #3a3642; }
+    .btn-sm { padding: 10px 18px; }
+
+    /* Hero */
+    .hero { padding: clamp(40px, 7vw, 96px) 0 clamp(56px, 8vw, 112px); }
+    .hero .wrap { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(32px, 6vw, 88px); align-items: center; }
+    .hero h1 { font-size: clamp(3rem, 7vw, 5.75rem); line-height: .95; letter-spacing: -0.04em; }
+    .hero .sub { display: inline-block; margin-top: 18px; font-family: var(--text); font-weight: 500; font-size: clamp(1.375rem, 2.2vw, 1.875rem); letter-spacing: -0.01em; background: linear-gradient(transparent 55%, var(--lav-200) 55%); padding: 0 .1em; }
+    .hero .lede { font-size: clamp(1.0625rem, 1.3vw, 1.25rem); max-width: 34em; margin: 26px 0 32px; }
+    .hero .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .portrait { position: relative; justify-self: end; width: min(380px, 100%); }
+    .portrait::before { content: ""; position: absolute; inset: 22px -22px -22px 22px; border-radius: 22px; background: var(--lav-200); transition: transform .4s var(--ease); }
+    .portrait:hover::before { transform: translate(-8px, -8px); }
+    .portrait img { position: relative; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 22px; }
+    .portrait .tag { position: absolute; left: -24px; bottom: 28px; background: var(--white); border-radius: 12px; padding: 12px 16px; font-size: .9375rem; line-height: 1.35; box-shadow: 0 8px 24px rgba(33,31,38,.08); }
+    .portrait .tag b { display: block; font-weight: 600; }
+
+    /* Stats band */
+    .band { background: var(--cream); padding: clamp(40px, 5vw, 64px) 0; }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .stat .n { font-family: var(--display); font-weight: 700; font-size: clamp(2.5rem, 4.4vw, 3.5rem); line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+    .stat .n::after { content: ""; display: block; width: 36px; height: 6px; border-radius: 3px; background: var(--lav-300); margin: 14px 0 12px; }
+    .stat p { margin: 0; font-size: 1rem; color: var(--muted); max-width: 16em; }
+
+    /* Section headings */
+    .section { padding: clamp(72px, 9vw, 120px) 0; }
+    .sec-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 40px; flex-wrap: wrap; }
+    .sec-head h2 { font-size: clamp(2.25rem, 4vw, 3.25rem); }
+    .sec-head p { margin: 0; max-width: 30em; color: var(--muted); }
+
+    /* Project cards */
+    .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .card { display: flex; flex-direction: column; background: var(--white); border-radius: 20px; overflow: hidden; text-decoration: none; color: var(--ink); box-shadow: 0 0 0 1px var(--cream-2); transition: transform .3s var(--ease), box-shadow .3s; }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 0 0 1px var(--lav-200), 0 18px 40px rgba(33,31,38,.08); }
+    .card .media { aspect-ratio: 16 / 10; overflow: hidden; background: var(--lav-100); }
+    .card .media img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; transition: transform .5s var(--ease); }
+    .card:hover .media img { transform: scale(1.04); }
+    .card .body { padding: 26px 28px 28px; display: flex; flex-direction: column; flex: 1; }
+    .card .org { font-size: .9375rem; color: var(--muted); margin-bottom: 8px; }
+    .card h3 { font-size: clamp(1.5rem, 2.2vw, 1.875rem); margin-bottom: 12px; }
+    .card .sum { margin-bottom: 18px; }
+    .card .go { margin-top: auto; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; padding-top: 6px; }
+    .card .go .arr { transition: transform .2s var(--ease); }
+    .card:hover .go .arr { transform: translateX(5px); }
+    .mini { width: 100%; height: 100%; padding: 26px 30px; display: flex; flex-direction: column; justify-content: center; gap: 14px; transition: transform .5s var(--ease); }
+    .card:hover .mini { transform: scale(1.03); }
+    .mini .r { display: grid; grid-template-columns: 9.5em 1fr 5.5em; align-items: center; gap: 12px; font-size: .875rem; }
+    .mini .r.hl { font-weight: 600; }
+    .mini .v { white-space: nowrap; text-align: right; font-variant-numeric: tabular-nums; color: var(--muted); font-size: .8125rem; }
+    .mini .r.hl .v { color: var(--ink); }
+    .mini .mk { display: flex; gap: 16px; font-size: .8125rem; color: var(--muted); margin-bottom: 2px; }
+    .mini .mk b { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: 0; }
+    .mini .mk .sc { margin-left: auto; }
+    .mini b.s { background: var(--ink); }
+    .mini b.p { background: var(--lav-400); }
+    .mini .t { position: relative; height: 16px; }
+    .mini .t i { position: absolute; top: 6px; height: 4px; background: var(--lav-300); border-radius: 2px; }
+    .mini .t b { position: absolute; top: 1px; width: 14px; height: 14px; border-radius: 50%; margin-left: -7px; }
+    .mini .t b.s { background: var(--ink); }
+    .mini .t b.p { background: var(--lav-400); }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0 0 6px; }
+    .chips li { background: var(--lav-50); border-radius: 999px; padding: 5px 12px; font-size: .875rem; font-weight: 500; }
+
+    /* Toolkit */
+    .kit { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .kit > div { background: var(--cream); border-radius: var(--radius); padding: 28px; transition: background .25s; }
+    .kit > div:hover { background: var(--lav-50); }
+    .kit h3 { font-size: 1.375rem; margin-bottom: 16px; }
+    .kit .chips li { background: var(--white); }
+
+    /* About */
+    .about .wrap { display: grid; grid-template-columns: 1.2fr .8fr; gap: clamp(32px, 6vw, 80px); align-items: start; }
+    .about h2 { font-size: clamp(2.25rem, 4vw, 3.25rem); margin-bottom: 28px; }
+    .facts { background: var(--lav-50); border-radius: 20px; padding: 30px; }
+    .facts dl { margin: 0; }
+    .facts dt { font-weight: 600; margin-top: 20px; }
+    .facts dt:first-child { margin-top: 0; }
+    .facts dd { margin: 4px 0 0; color: var(--muted); }
+
+    /* Contact */
+    .contact-box { background: var(--lav-100); border-radius: 28px; padding: clamp(36px, 6vw, 72px); display: grid; grid-template-columns: 1.3fr 1fr; gap: 32px; align-items: center; }
+    .contact-box h2 { font-size: clamp(2rem, 4vw, 3rem); }
+    .contact-box p { margin-bottom: 22px; }
+    .contact-box .small { font-size: .9375rem; color: var(--muted); margin: 16px 0 0; }
+
+    footer { padding: 40px 0 48px; color: var(--muted); font-size: .9375rem; }
+    footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    footer nav { display: flex; gap: 22px; }
+
+    /* ---------- Case study views ---------- */
+    .case-view { padding-bottom: 40px; }
+    .back { display: inline-flex; gap: 8px; align-items: center; text-decoration: none; font-weight: 600; margin: 28px 0 32px; }
+    .back .arr { transition: transform .2s var(--ease); }
+    .back:hover .arr { transform: translateX(-4px); }
+    .case-top { display: grid; grid-template-columns: 1fr 320px; gap: clamp(32px, 5vw, 72px); align-items: center; }
+    h1[tabindex="-1"]:focus { outline: none; }
+    .case-top .org { color: var(--muted); margin-bottom: 12px; }
+    .case-top h1 { font-size: clamp(2.5rem, 4.6vw, 4rem); line-height: .98; letter-spacing: -0.035em; margin-bottom: 22px; }
+    .case-top .summary { font-size: clamp(1.0625rem, 1.3vw, 1.25rem); max-width: 34em; }
+    .case-photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 35%; border-radius: 20px; }
+    .case-photo figcaption { font-size: .875rem; color: var(--muted); margin-top: 10px; }
+    .case-photo { margin: 0; }
+    .facts-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 48px 0 0; }
+    .facts-row div { background: var(--cream); border-radius: var(--radius); padding: 18px 20px; }
+    .facts-row b { display: block; font-weight: 600; margin-bottom: 4px; }
+    .facts-row span { color: var(--muted); font-size: .9688rem; line-height: 1.45; display: block; }
+    .glance { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 16px; }
+    .glance div { background: var(--lav-100); border-radius: var(--radius); padding: 22px 22px 20px; }
+    .glance .n { font-family: var(--display); font-weight: 700; font-size: clamp(2.25rem, 3.6vw, 3rem); line-height: 1; letter-spacing: -0.03em; display: block; margin-bottom: 10px; font-variant-numeric: tabular-nums; }
+    .glance p { margin: 0; font-size: .9688rem; }
+
+    .case-body { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: clamp(32px, 5vw, 72px); margin-top: clamp(56px, 7vw, 88px); }
+    .toc { position: sticky; top: 96px; align-self: start; }
+    .toc p { font-weight: 600; margin-bottom: 12px; }
+    .toc ol { list-style: none; padding: 0; margin: 0; display: grid; gap: 2px; }
+    .toc a { display: block; text-decoration: none; padding: 7px 12px; border-radius: 8px; color: var(--muted); font-size: .9688rem; transition: background .2s, color .2s; }
+    .toc a:hover { background: var(--cream); color: var(--ink); }
+    .toc a.on { background: var(--lav-100); color: var(--ink); font-weight: 600; }
+    .prose { max-width: 720px; }
+    #work, #about, #contact { scroll-margin-top: 72px; }
+    .prose section { padding-top: 8px; margin-bottom: 56px; scroll-margin-top: 96px; }
+    .prose h2 { font-size: clamp(1.75rem, 2.6vw, 2.125rem); margin-bottom: 18px; }
+    .prose ul, .prose ol { padding-left: 1.2em; margin: 0 0 1em; }
+    .prose li { margin-bottom: .6em; }
+    .prose li::marker { color: var(--lav-400); font-weight: 700; }
+    .three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 8px 0 18px; }
+    .three div { background: var(--lav-50); border-radius: var(--radius); padding: 20px; font-size: .9688rem; line-height: 1.5; }
+    .three b { display: block; font-family: var(--display); font-size: 1.25rem; margin-bottom: 8px; }
+    .recs { list-style: none; padding: 0 !important; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; counter-reset: r; }
+    .recs li { background: var(--cream); border-radius: var(--radius); padding: 22px; margin: 0 !important; font-size: .9688rem; counter-increment: r; }
+    .recs li b { display: block; font-family: var(--display); font-size: 1.1875rem; line-height: 1.2; margin-bottom: 8px; }
+    .recs li b::before { content: counter(r); display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--lav-200); font-size: .9375rem; margin-right: 10px; vertical-align: 1px; }
+    .note { background: var(--cream); border-radius: var(--radius); padding: 20px 22px; }
+    .next { display: flex; justify-content: space-between; align-items: center; gap: 20px; background: var(--lav-100); border-radius: 20px; padding: 28px 32px; text-decoration: none; margin-top: 24px; transition: background .2s; }
+    .next:hover { background: var(--lav-200); }
+    .next span { color: var(--muted); display: block; font-size: .9375rem; }
+    .next strong { font-family: var(--display); font-size: clamp(1.375rem, 2.4vw, 1.75rem); letter-spacing: -0.02em; }
+    .next .arr { font-size: 1.75rem; transition: transform .2s var(--ease); }
+    .next:hover .arr { transform: translateX(6px); }
+
+    /* Figures and charts */
+    .fig { background: var(--white); box-shadow: 0 0 0 1px var(--cream-2); border-radius: 18px; padding: 26px; margin: 22px 0 24px; }
+    .fig figcaption { font-size: .9375rem; color: var(--muted); margin-top: 16px; }
+    .key { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: .9375rem; color: var(--muted); margin-bottom: 18px; }
+    .key i { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 8px; vertical-align: -1px; }
+    .metric { margin-bottom: 18px; }
+    .metric:last-of-type { margin-bottom: 0; }
+    .m-head { display: flex; justify-content: space-between; gap: 16px; font-size: .9688rem; margin-bottom: 6px; }
+    .m-head b { font-weight: 600; white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .m-head b.flat { color: var(--muted); font-weight: 500; }
+    .track { height: 22px; margin-bottom: 4px; background: var(--lav-50); border-radius: 6px; overflow: hidden; }
+    .fill { height: 100%; border-radius: 6px; display: flex; align-items: center; padding-left: 10px; font-size: .8125rem; font-weight: 600; font-variant-numeric: tabular-nums; transform-origin: left; }
+    .fill.before { background: var(--lav-200); }
+    .fill.after { background: var(--lav-400); }
+
+    .shelf-tools { display: flex; gap: 6px; margin-bottom: 18px; flex-wrap: wrap; }
+    .seg { appearance: none; border: 0; cursor: pointer; font: 600 .9375rem/1 var(--text); padding: 11px 16px; min-height: 44px; border-radius: 999px; background: var(--cream); color: var(--ink); transition: background .18s, transform .14s; }
+    .seg[aria-pressed="true"] { background: var(--lav-200); }
+    .seg:active { transform: scale(.97); }
+    .shelf { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; max-width: 460px; background: var(--lav-50); padding: 14px 14px 0; border-radius: 12px; }
+    .shelf .edge { grid-column: 1 / -1; height: 8px; border-radius: 4px; background: var(--cream-2); margin-bottom: 12px; }
+    .slot { aspect-ratio: 3 / 4; border-radius: 4px; }
+    .slot.a { background: var(--lav-200); }
+    .slot.b { background: var(--lav-300); }
+    .slot.c { background: var(--lav-100); }
+    .slot.d { background: var(--cream-2); }
+    button.hole { appearance: none; border: 0; margin: 0; cursor: pointer; border-radius: 4px; background: var(--white); color: var(--ink); font: 600 .9375rem/1 var(--text); position: relative; overflow: hidden; display: flex; justify-content: center; align-items: flex-start; padding: 12px 0 0; min-height: 44px; box-shadow: inset 0 0 0 2px var(--lav-300); transition: transform .14s, background .18s; }
+    button.hole i { position: absolute; left: 0; right: 0; bottom: 0; height: var(--lvl); background: var(--lav-100); }
+    button.hole em { position: relative; font-style: normal; }
+    button.hole:hover { background: var(--lav-50); }
+    button.hole:active { transform: scale(.94); }
+    button.hole.on { background: var(--lav-400); box-shadow: none; }
+    button.hole.on i { background: var(--lav-300); }
+    .shelf-status { margin: 18px 0 0; min-height: 3.2em; font-size: .9688rem; }
+    .reset { appearance: none; border: 0; background: none; padding: 0; font: inherit; font-size: .9375rem; text-decoration: underline; text-decoration-color: var(--lav-400); text-underline-offset: 3px; cursor: pointer; color: var(--ink); }
+
+    .db { display: grid; gap: 10px; }
+    .db-row { display: grid; grid-template-columns: 200px 1fr 92px; align-items: center; column-gap: 14px; font-size: .9375rem; }
+    .db-row.hl .db-name, .db-row.hl .db-val { font-weight: 600; color: var(--ink); }
+    .db-val { text-align: right; font-size: .875rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .db-track { position: relative; height: 22px; margin: 0 9px; }
+    .db-bar { position: absolute; top: 9px; height: 4px; border-radius: 2px; background: var(--lav-200); }
+    .db-row.hl .db-bar { background: var(--lav-400); }
+    .db-dot { position: absolute; top: 2px; width: 18px; height: 18px; border-radius: 50%; margin-left: -9px; }
+    .db-dot.perf { background: var(--ink); }
+    .db-dot.prio { background: var(--lav-400); }
+    .db-axis .db-track b { position: absolute; transform: translateX(-50%); font-weight: 400; font-size: .8125rem; color: var(--muted); }
+
+    .stack { display: flex; height: 48px; border-radius: 10px; overflow: hidden; }
+    .stack span { display: flex; align-items: center; justify-content: center; font-size: .9375rem; font-weight: 600; transform-origin: left; }
+    .stack .s1 { flex: 96; background: var(--lav-100); }
+    .stack .s2 { flex: 98; background: var(--lav-300); }
+    .stack .s3 { flex: 53; background: var(--lav-400); }
+    .stack-key { list-style: none; padding: 0 !important; margin: 16px 0 0 !important; font-size: .9688rem; }
+    .stack-key li { margin-bottom: 6px !important; }
+    .stack-key li::marker { content: none; }
+    .stack-key i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 10px; vertical-align: -1px; }
+
+    /* Motion */
+    .js .rv { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s var(--ease); transition-delay: var(--d, 0ms); }
+    .js .rv.in { opacity: 1; transform: none; }
+    .js .grow .fill, .js .grow .stack span { transform: scaleX(0); transition: transform .9s var(--ease) .15s; }
+    .js .grow.in .fill, .js .grow.in .stack span { transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .js .rv, .js .grow .fill, .js .grow .stack span { opacity: 1; transform: none; transition: none; }
+      .card, .card .media img, .mini, .portrait::before, .logo { transition: none; }
+    }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .stats { grid-template-columns: 1fr 1fr; row-gap: 36px; }
+      .kit { grid-template-columns: 1fr; }
+      .facts-row { grid-template-columns: 1fr 1fr; }
+      .case-body { grid-template-columns: 1fr; }
+      .toc { display: none; }
+    }
+    @media (max-width: 760px) {
+      .site-head nav { gap: 16px; }
+      .site-head nav .hide-sm { display: none; }
+      .hero .wrap { grid-template-columns: 1fr; }
+      .portrait { justify-self: start; width: min(260px, 72%); margin: 12px 0 16px 0; }
+      .portrait::before { inset: 14px -14px -14px 14px; }
+      .portrait .tag { left: auto; right: -10px; bottom: 18px; font-size: .875rem; }
+      .cards, .about .wrap, .contact-box, .case-top { grid-template-columns: 1fr; }
+      .glance, .three, .recs { grid-template-columns: 1fr; }
+      .case-photo { max-width: 340px; }
+      .fig { padding: 18px; }
+      .shelf { grid-template-columns: repeat(5, 1fr); }
+      .shelf .x6 { display: none; }
+      .db-row { grid-template-columns: 1fr auto; row-gap: 4px; }
+      .db-track { grid-column: 1 / -1; grid-row: 2; }
+      .db-axis .db-name, .db-axis .db-val { display: none; }
+      .mini { padding: 20px; gap: 10px; }
+      .card .media.chart { aspect-ratio: auto; }
+      .mini .r { grid-template-columns: 7em 1fr auto; gap: 8px; font-size: .75rem; }
+      .mini .v { font-size: .75rem; }
+      .next { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js');</script>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Mia Graham, home">MG</a>
+    <nav aria-label="Main">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="hide-sm">Contact</a>
+      <a class="btn btn-lav btn-sm" href="https://www.linkedin.com/in/miacgraham">LinkedIn</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= HOME ================= -->
+<main id="home" data-view="home">
+
+  <section class="hero" id="top" aria-labelledby="title">
+    <div class="wrap">
+      <div>
+        <h1 id="title" class="rv">Mia Graham</h1>
+        <span class="sub rv" style="--d:80ms">Insights &amp; analytics</span>
+        <p class="lede rv" style="--d:140ms">MS Marketing student at UT Austin's McCombs School of Business, graduating May 2027. Excited to apply my skills in entry-level roles in consumer insights, marketing analytics, and brand management.</p>
+        <div class="actions rv" style="--d:200ms">
+          <a class="btn btn-lav" href="#work">See my work <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn btn-soft" href="https://www.linkedin.com/in/miacgraham">Message me on LinkedIn</a>
+        </div>
+      </div>
+      <div class="portrait rv" style="--d:120ms">
+        <img src="mia-portrait.jpg" width="560" height="700" alt="Mia Graham">
+        <div class="tag"><b>MS Marketing</b>UT Austin McCombs, 2027</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" aria-label="Highlights">
+    <div class="wrap stats">
+      <div class="stat rv"><div class="n" data-count="6.9" data-prefix="+" data-dec="1">+6.9</div><p>percentage points more holes scanned on the Frito-Lay routes I coached</p></div>
+      <div class="stat rv" style="--d:80ms"><div class="n" data-count="148">148</div><p>member survey responses I designed for and analyzed at Sigma Kappa</p></div>
+      <div class="stat rv" style="--d:160ms"><div class="n" data-count="2.73" data-dec="2">2.73</div><p>point gap that made campus reputation the chapter's top priority</p></div>
+      <div class="stat rv" style="--d:240ms"><div class="n" data-count="30">30</div><p>route sales rep survey responses I analyzed with a rank correlation</p></div>
+    </div>
+  </section>
+
+  <section class="section" id="work" aria-labelledby="work-h">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <h2 id="work-h">Selected work</h2>
+        <p>Two projects, seen through from question to recommendation. Full case studies below.</p>
+      </div>
+      <div class="cards">
+        <a class="card rv" href="#frito">
+          <div class="media"><img src="frito-office.jpg" width="640" height="800" alt="Mia outside the Frito-Lay regional office" loading="lazy" style="object-position:50% 6%"></div>
+          <div class="body">
+            <span class="org">Frito-Lay (PepsiCo) · Summer 2025</span>
+            <h3>Why reps resisted a new ordering system</h3>
+            <p class="sum">I used office-wide data to find where ordering lagged, then rode routes with reps to understand the gap between what the system expected and what was really happening in stores. That shaped an office-wide training built on listening to reps and resonating with them through clear, transparent answers.</p>
+            <ul class="chips"><li>Field research</li><li>Survey design</li><li>Power BI</li><li>Excel</li></ul>
+            <span class="go">Read case study <span class="arr" aria-hidden="true">→</span></span>
+          </div>
+        </a>
+        <a class="card rv" style="--d:100ms" href="#sigma">
+          <div class="media chart" aria-hidden="true">
+            <div class="mini">
+              <div class="mk"><span><b class="s"></b>Strength</span><span><b class="p"></b>Priority</span><span class="sc">1–5 scale</span></div>
+              <div class="r hl"><span>Campus reputation</span><span class="t"><i style="left:18.2%;width:68.3%"></i><b class="s" style="left:18.2%"></b><b class="p" style="left:86.5%"></b></span><span class="v">1.73 / 4.46</span></div>
+              <div class="r"><span>Social media</span><span class="t"><i style="left:36%;width:46.2%"></i><b class="s" style="left:36%"></b><b class="p" style="left:82.2%"></b></span><span class="v">2.44 / 4.29</span></div>
+              <div class="r"><span>Panhellenic</span><span class="t"><i style="left:36%;width:42%"></i><b class="s" style="left:36%"></b><b class="p" style="left:78%"></b></span><span class="v">2.44 / 4.12</span></div>
+              <div class="r"><span>Recruitment</span><span class="t"><i style="left:46.2%;width:40.8%"></i><b class="s" style="left:46.2%"></b><b class="p" style="left:87%"></b></span><span class="v">2.85 / 4.48</span></div>
+              <div class="r"><span>Chapter culture</span><span class="t"><i style="left:43.2%;width:27.6%"></i><b class="s" style="left:43.2%"></b><b class="p" style="left:70.8%"></b></span><span class="v">2.73 / 3.83</span></div>
+            </div>
+          </div>
+          <div class="body">
+            <span class="org">Sigma Kappa, University of Alabama · 2024</span>
+            <h3>Finding the chapter's biggest gap</h3>
+            <p class="sum">Recruitment data and two member surveys I designed pointed to the same answer: reputation was the barrier to growth. I made recommendations to build a long-term brand identity, starting with who the chapter recruited and how it presented itself.</p>
+            <ul class="chips"><li>Survey design</li><li>Importance-performance</li><li>Brand strategy</li><li>Google Sheets</li></ul>
+            <span class="go">Read case study <span class="arr" aria-hidden="true">→</span></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0" aria-labelledby="kit-h">
+    <div class="wrap">
+      <div class="sec-head rv"><h2 id="kit-h">Skills</h2><p>What I used in the work above.</p></div>
+      <div class="kit">
+        <div class="rv"><h3>Research</h3><ul class="chips"><li>Survey design</li><li>Field research</li><li>Stakeholder interviews</li><li>Open-ended response coding</li><li>Benchmarking</li></ul></div>
+        <div class="rv" style="--d:80ms"><h3>Analysis</h3><ul class="chips"><li>Excel</li><li>Power BI</li><li>Google Sheets</li><li>Importance-performance analysis</li><li>Spearman rank correlation</li><li>Segmentation</li></ul></div>
+        <div class="rv" style="--d:160ms"><h3>Strategy</h3><ul class="chips"><li>Brand strategy</li><li>Root-cause analysis</li><li>Content analysis</li><li>Stakeholder management</li><li>Training and presentations</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section about" id="about" style="background:var(--cream)" aria-labelledby="about-h">
+    <div class="wrap">
+      <div>
+        <h2 id="about-h" class="rv">About me</h2>
+        <p class="rv">I'm completing my MS in Marketing at UT Austin's McCombs School of Business, a program built around analytics and AI. I earned my BA in Communication and Information Sciences from the University of Alabama in May 2026, with minors in math and chemistry.</p>
+        <p class="rv">I discovered I wanted to work in marketing through my role as VP of Member Experience for Sigma Kappa at Alabama, where I surveyed members on what mattered to them, found the gaps holding the chapter back, and built a brand strategy around them.</p>
+        <p class="rv">During summer 2025, I interned at Frito-Lay, where I worked with sales and ordering data in a CPG setting. Beyond my project, I got a close look at how a major snack company tracks and responds to changing consumer demand. In stores and in sales dashboards, I saw how what sold shifted by store format, season, promotion, and shelf placement.</p>
+        <p class="rv">I was also there for the push toward health-conscious snacking, including internal discussions about protein options and the Simply NKD line of Doritos and Cheetos without artificial colors or flavors. It gave me an inside look at how a major CPG brand responds when consumer needs change, which is exactly the kind of question I want to work on.</p>
+      </div>
+      <aside class="facts rv" style="--d:120ms" aria-label="Quick facts">
+        <dl>
+          <dt>Education</dt>
+          <dd>MS Marketing, UT Austin McCombs, May 2027</dd>
+          <dd>BA in Communication and Information Sciences, University of Alabama, May 2026, minors in math and chemistry</dd>
+          <dt>Experience</dt>
+          <dd>Sales Intern, Frito-Lay, summer 2025</dd>
+          <dd>VP of Member Experience, Sigma Kappa, 2023 to 2024</dd>
+          <dt>Looking for</dt>
+          <dd>Entry-level roles in consumer insights, marketing analytics, and brand management</dd>
+        </dl>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" id="contact" aria-labelledby="contact-h">
+    <div class="wrap">
+      <div class="contact-box rv">
+        <h2 id="contact-h">I'd love to talk about entry-level roles!</h2>
+        <div>
+          <p>The best way to reach me is a message on LinkedIn.</p>
+          <a class="btn btn-ink" href="https://www.linkedin.com/in/miacgraham">Message me on LinkedIn <span class="arr" aria-hidden="true">→</span></a>
+          <p class="small">My résumé is available on request.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= CASE: FRITO-LAY ================= -->
+<main id="frito" class="case-view" data-view="case" data-title="Why reps resisted a new ordering system | Mia Graham">
+  <div class="wrap">
+    <a class="back" href="#work"><span class="arr" aria-hidden="true">←</span> All work</a>
+    <div class="case-top">
+      <div>
+        <p class="org">Frito-Lay (PepsiCo) · Summer 2025</p>
+        <h1 tabindex="-1">Why reps resisted a new ordering system</h1>
+        <p class="summary">Route sales reps weren't fully using Frito-Lay's new digital planogram ordering system. I found out why, coached the routes that needed it most, and measured what changed.</p>
+      </div>
+      <figure class="case-photo">
+        <img src="frito-office.jpg" width="640" height="800" loading="lazy" alt="Mia standing outside the Frito-Lay regional office in summer 2025, wearing her intern badge">
+        <figcaption>Outside the Frito-Lay regional office, summer 2025.</figcaption>
+      </figure>
+    </div>
+    <div class="facts-row">
+      <div><b>Role</b><span>Sales Intern, sales management team</span></div>
+      <div><b>Where</b><span>Greater Virginia Zone</span></div>
+      <div><b>When</b><span>June to August 2025</span></div>
+      <div><b>Tools</b><span>Power BI, Excel, rep survey</span></div>
+    </div>
+    <div class="glance">
+      <div><span class="n">53%</span><p>DPO compliance on my routes when I started</p></div>
+      <div><span class="n">+6.9 pts</span><p>more holes scanned after four weeks of coaching</p></div>
+      <div><span class="n">24 of 30</span><p>reps rated the training "very helpful"</p></div>
+    </div>
+
+    <div class="case-body">
+      <nav class="toc" aria-label="Case study sections">
+        <p>On this page</p>
+        <ol>
+          <li><a href="#frito-context">Context</a></li>
+          <li><a href="#frito-question">Question</a></li>
+          <li><a href="#frito-found">What I found</a></li>
+          <li><a href="#frito-did">What I did</a></li>
+          <li><a href="#frito-results">Results</a></li>
+          <li><a href="#frito-gap">Where the gap persisted</a></li>
+          <li><a href="#frito-limits">Limits</a></li>
+          <li><a href="#frito-next">What I'd do next</a></li>
+        </ol>
+      </nav>
+      <div class="prose">
+        <section id="frito-context">
+          <h2>Context</h2>
+          <p>At Frito-Lay, route sales reps do more than sell: they deliver product, stock the shelves, and pitch store managers on things like a new display. Ordering is one more task in a full day. Frito-Lay's precision ordering (PO) initiative aims to make each store order match what the shelf actually needs, to reduce backstock and stales and help execute sales plans. Its newest piece, digital planogram ordering (DPO), builds orders from a digital planogram, the map of what belongs on each shelf.</p>
+          <p>Reps tap the "holes" on the planogram, the spots on the shelf that need product, and tap a spot more than once when it needs more. Each tap is one increment, set in the app: typically two units at small-format stores and a full case at bulk stores. Reps also scan backstock, and the system suggests an order. Both only work when reps enter accurate, complete information. My project covered precision ordering broadly and the new DPO system specifically. On the routes I worked with, DPO compliance was about 53%.</p>
+          <figure class="fig" id="shelf-demo">
+            <div class="shelf-tools" role="group" aria-label="Store type">
+              <button type="button" class="seg" aria-pressed="true" data-unit="small">Small-format store</button>
+              <button type="button" class="seg" aria-pressed="false" data-unit="bulk">Bulk store</button>
+            </div>
+            <div class="shelf" role="group" aria-label="A simplified store shelf. Outlined spots need product; tap one to scan it, again to ask for more.">
+              <span class="slot a"></span><span class="slot a"></span><button class="hole" type="button" style="--lvl:20%" data-name="Low spot, top shelf" aria-label="Low spot, top shelf: 0 scans"><i></i><em>Tap</em></button><span class="slot b"></span><span class="slot d"></span><span class="slot d x6"></span>
+              <div class="edge"></div>
+              <span class="slot c"></span><button class="hole" type="button" style="--lvl:45%" data-name="Low spot, middle shelf" aria-label="Low spot, middle shelf: 0 scans"><i></i><em>Tap</em></button><span class="slot a"></span><span class="slot b"></span><button class="hole" type="button" style="--lvl:0%" data-name="Empty spot, middle shelf" aria-label="Empty spot, middle shelf: 0 scans"><i></i><em>Tap</em></button><span class="slot a x6"></span>
+              <div class="edge"></div>
+              <span class="slot d"></span><span class="slot d"></span><span class="slot c"></span><button class="hole" type="button" style="--lvl:30%" data-name="Low spot, bottom shelf" aria-label="Low spot, bottom shelf: 0 scans"><i></i><em>Tap</em></button><span class="slot a"></span><span class="slot c x6"></span>
+              <div class="edge"></div>
+            </div>
+            <p class="shelf-status" aria-live="polite">Tap the spots that need product the way a rep would. Tap a spot again to ask for more.</p>
+            <button class="reset" type="button" hidden>Start over</button>
+            <figcaption>Try it: how DPO works, simplified. Each scan is one increment, and the system only orders for what reps scan. A fourth tap clears a spot.</figcaption>
+          </figure>
+        </section>
+
+        <section id="frito-question">
+          <h2>Question</h2>
+          <p>Why weren't reps following the precision ordering process and using the new DPO system as intended, and what would raise compliance?</p>
+        </section>
+
+        <section id="frito-found">
+          <h2>What I found</h2>
+          <p>I rode routes with reps to learn the job and the app, reviewed compliance data in Power BI and Excel, and talked with experienced reps and managers. Three barriers came up:</p>
+          <div class="three">
+            <div><b>Understanding</b>Reps didn't fully understand how the system turned their input into an order, or why accurate, organized input mattered.</div>
+            <div><b>Incentive</b>Nothing rewarded them for changing a routine that already worked for them.</div>
+            <div><b>Trust</b>Some found the idea of a computer doing the ordering off-putting, especially amid broader concerns about AI and the job market.</div>
+          </div>
+        </section>
+
+        <section id="frito-did">
+          <h2>What I did</h2>
+          <ul>
+            <li>Used office-wide compliance data in Power BI to decide where to focus. Small-format routes were less compliant on average than bulk routes, so I targeted them for coaching.</li>
+            <li>Rebuilt the training on how the system generates orders. The original was complex and hard to follow, so I worked through each part until I understood it, translated it into plain English, and redesigned the slides.</li>
+            <li>Presented it in a 15-minute, office-wide session, beyond just the routes I coached. Reps are busy, and I wanted them to feel their time was respected, so nothing was there just to fill time. I explained the mechanism behind the orders plainly with relevant details but no fluff, answered the questions reps asked most, and listened to their concerns so I could address them with the facts.</li>
+            <li>Wrote one-page tip sheets, posted at the distribution center and placed in every rep's mailbox.</li>
+            <li>Ran in-store work-withs (coaching on live routes) on four routes.</li>
+            <li>Set up a friendly competition with small rewards for the most improved adjustment compliance.</li>
+            <li>Surveyed reps afterward and got 30 responses.</li>
+          </ul>
+        </section>
+
+        <section id="frito-results">
+          <h2>Results</h2>
+          <p>I compared a 12-week baseline with the four weeks after the work-withs on the four routes I coached. Changes are in percentage points.</p>
+          <figure class="fig grow rv">
+            <div class="key"><span><i style="background:var(--lav-200)"></i>Before (12-week baseline)</span><span><i style="background:var(--lav-400)"></i>After (4 weeks)</span></div>
+            <!-- Confirm this definition if you can; it's also on your résumé. -->
+            <div class="metric"><div class="m-head"><span>Perfect order compliance (composite of the measures below)</span><b>+7.7 pts</b></div>
+              <div class="track"><div class="fill before" style="width:42.7%">42.7%</div></div><div class="track"><div class="fill after" style="width:50.4%">50.4%</div></div></div>
+            <div class="metric"><div class="m-head"><span>Holes scanned</span><b>+6.9 pts</b></div>
+              <div class="track"><div class="fill before" style="width:54.7%">54.7%</div></div><div class="track"><div class="fill after" style="width:61.6%">61.6%</div></div></div>
+            <div class="metric"><div class="m-head"><span>Backstock scanned</span><b>+4.3 pts</b></div>
+              <div class="track"><div class="fill before" style="width:44.3%">44.3%</div></div><div class="track"><div class="fill after" style="width:48.6%">48.6%</div></div></div>
+            <div class="metric"><div class="m-head"><span>Adjustment compliance</span><b>+4.0 pts</b></div>
+              <div class="track"><div class="fill before" style="width:75.6%">75.6%</div></div><div class="track"><div class="fill after" style="width:79.6%">79.6%</div></div></div>
+            <div class="metric"><div class="m-head"><span>Orders left unadjusted</span><b>+1.3 pts</b></div>
+              <div class="track"><div class="fill before" style="width:86.2%">86.2%</div></div><div class="track"><div class="fill after" style="width:87.5%">87.5%</div></div></div>
+            <div class="metric"><div class="m-head"><span>Overall DPO compliance</span><b class="flat">+0.2 pts, flat</b></div>
+              <div class="track"><div class="fill before" style="width:53%">53.0%</div></div><div class="track"><div class="fill after" style="width:53.2%">53.2%</div></div></div>
+          </figure>
+          <p>In the survey, 24 of 30 reps rated the training "very helpful," 5 "somewhat," and 1 "no." Analyzing the survey data, I found that reps who used the system more often also tended to trust its orders more. I tested this with a Spearman rank correlation, which suits survey scales where the gaps between "sometimes," "usually," and "always" can't be assumed equal.</p>
+          <!-- If you can recover the coefficient, add it to the sentence above, e.g. "(rho = 0.xx, n = 30)". -->
+        </section>
+
+        <section id="frito-gap">
+          <h2>Where the gap persisted</h2>
+          <p>Routes are split into UDS ("up and down the street": convenience and smaller grocery stores) and bulk (large-format stores like Sam's Club). UDS routes lagged bulk routes on every measure, which is why I targeted them. After the work-withs, holes scanned on UDS routes improved, but backstock scanning stayed low (roughly 22% against roughly 66% for bulk). That is why I recommended continuing to prioritize UDS routes, with a focus on backstock.</p>
+          <!-- Verify the UDS vs. bulk figures against your chart data before publishing. -->
+        </section>
+
+        <section id="frito-limits">
+          <h2>Limits of this analysis</h2>
+          <p class="note">This was an uncontrolled field setting: there was no comparison group, the follow-up window was four weeks, and I ran several interventions at once. So I can't attribute the gains to any single intervention, or rule out other factors, such as seasonal changes in volume, behind them. The headline compliance number barely moved, which tells me the work-withs changed scanning habits more than how reps interact with planograms.</p>
+        </section>
+
+        <section id="frito-next">
+          <h2>What I'd do next</h2>
+          <ul>
+            <li>Roll coaching out in stages across routes, so later groups serve as a comparison.</li>
+            <li>Focus coaching on backstock scanning on UDS routes, where the gap is largest.</li>
+            <li>Track whether the gains hold beyond four weeks, and keep reinforcing the behaviors that worked.</li>
+          </ul>
+          <ul class="chips" aria-label="Methods and tools" style="margin-top:24px"><li>Field research</li><li>Survey design</li><li>Excel</li><li>Power BI</li><li>Rank-based correlation</li><li>Behavior change</li></ul>
+        </section>
+
+        <a class="next" href="#sigma"><div><span>Next case study</span><strong>Finding the chapter's biggest gap</strong></div><span class="arr" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ================= CASE: SIGMA KAPPA ================= -->
+<main id="sigma" class="case-view" data-view="case" data-title="Finding the chapter's biggest gap | Mia Graham">
+  <div class="wrap">
+    <a class="back" href="#work"><span class="arr" aria-hidden="true">←</span> All work</a>
+    <div class="case-top" style="grid-template-columns:1fr">
+      <div>
+        <p class="org">Sigma Kappa, University of Alabama · 2024</p>
+        <h1 tabindex="-1">Finding the chapter's biggest gap</h1>
+        <p class="summary">As VP of Member Experience, I ran two member surveys and paired them with recruitment data to find where the chapter was falling short, then turned the results into a strategy for the executive council and advisory board.</p>
+      </div>
+    </div>
+    <div class="facts-row">
+      <div><b>Role</b><span>VP of Member Experience</span></div>
+      <div><b>When</b><span>November 2023 to November 2024; surveys April to June 2024</span></div>
+      <div><b>Team</b><span>Led a 14-person team, including a 5-person retention council</span></div>
+      <div><b>Tools</b><span>Google Forms, Google Sheets, survey analysis</span></div>
+    </div>
+    <div class="glance">
+      <div><span class="n">148</span><p>responses across two member surveys</p></div>
+      <div><span class="n">2.73</span><p>point gap between reputation's priority and its strength rating</p></div>
+      <div><span class="n">60%</span><p>of members named PR and reputation the top focus</p></div>
+    </div>
+
+    <div class="case-body">
+      <nav class="toc" aria-label="Case study sections">
+        <p>On this page</p>
+        <ol>
+          <li><a href="#sigma-context">Context</a></li>
+          <li><a href="#sigma-question">Question</a></li>
+          <li><a href="#sigma-role">My role</a></li>
+          <li><a href="#sigma-approach">Approach</a></li>
+          <li><a href="#sigma-data">What the data showed</a></li>
+          <li><a href="#sigma-insights">Key insights</a></li>
+          <li><a href="#sigma-recs">Recommendations</a></li>
+          <li><a href="#sigma-outcome">Outcome</a></li>
+          <li><a href="#sigma-learned">What I learned</a></li>
+        </ol>
+      </nav>
+      <div class="prose">
+        <section id="sigma-context">
+          <h2>Context</h2>
+          <p>Sigma Kappa was a newly established chapter on one of the most competitive Greek campuses in the country, without housing comparable to other chapters, and COVID-19 hit during a critical growth phase. The chapter struggled with low visibility, inconsistent branding, and recruitment, and many members felt their experience fell short of what they had expected. Internal operations were stretched thin, time and budget were limited, and leadership didn't yet have a shared strategy for what to fix first.</p>
+        </section>
+
+        <section id="sigma-question">
+          <h2>Question</h2>
+          <p>Where did members think the chapter was falling short, and which gaps mattered most to them?</p>
+        </section>
+
+        <section id="sigma-role">
+          <h2>My role</h2>
+          <p>I designed both surveys and ran the analysis with one teammate whose role covered survey work, and that teammate assembled the final presentation for the executive council and advisory board. More broadly, I led a 14-person team across several functions, including a 5-person retention council that explored why members were leaving, conducted exit interviews, and worked to keep members who were thinking about leaving.</p>
+        </section>
+
+        <section id="sigma-approach">
+          <h2>Approach</h2>
+          <p>I ran two member surveys. The first, in April, was aimed at gathering information to inform our recruitment strategy in August. It asked what the chapter should emphasize going forward, what it should be known for, and what members wanted in new sisters. The second, a strengths and growth survey in May and June, asked two questions about each of 11 areas of chapter life on a 1–5 scale: how strong is the chapter in this area, and how much should we prioritize improving it? Pairing the two, a version of importance-performance analysis, turns members' ratings into a ranked set of priorities. Each area also had space for open-ended comments, so the ratings came with members' own explanations and ideas.</p>
+          <ul>
+            <li>100 members answered the April survey and 48 answered the strengths and growth survey, out of roughly 165 (about 60% and 29%).</li>
+            <li>I benchmarked our branding and events against peer chapters. For social media, a teammate and I logged each post by date and type, such as holiday, sisterhood event, and member accomplishment posts, in Google Sheets to compare content mix and posting frequency. We posted less often than peer chapters, and for a narrower range of occasions.</li>
+            <li>For each area, we listed the specific issues, traced their causes using qualitative data and interviews with members, and matched solutions to those causes.</li>
+            <li>We combined it all into a strategic assessment for the executive council and advisory board.</li>
+          </ul>
+        </section>
+
+        <section id="sigma-data">
+          <h2>What the data showed</h2>
+          <p>Campus reputation was members' weakest area and one of their two highest priorities: 1.73 out of 5 on strength, 4.46 on priority. Only recruitment, at 4.48, ranked higher as a priority.</p>
+          <figure class="fig rv">
+            <div class="key"><span><i style="background:var(--ink)"></i>Strength (how members rated the chapter)</span><span><i style="background:var(--lav-400)"></i>Priority (how much to prioritize improving it)</span></div>
+            <div class="db" role="img" aria-label="Average strength and priority ratings for 11 areas of chapter life, sorted by the gap between them. Campus reputation has the largest gap: strength 1.73, priority 4.46.">
+              <div class="db-row hl"><span class="db-name">Campus reputation</span><span class="db-track"><i class="db-bar" style="left:18.2%;width:calc(86.5% - 18.2%)"></i><i class="db-dot perf" style="left:18.2%"></i><i class="db-dot prio" style="left:86.5%"></i></span><span class="db-val">1.73 / 4.46</span></div>
+              <div class="db-row"><span class="db-name">Social media</span><span class="db-track"><i class="db-bar" style="left:36.0%;width:calc(82.2% - 36.0%)"></i><i class="db-dot perf" style="left:36.0%"></i><i class="db-dot prio" style="left:82.2%"></i></span><span class="db-val">2.44 / 4.29</span></div>
+              <div class="db-row"><span class="db-name">Panhellenic involvement</span><span class="db-track"><i class="db-bar" style="left:36.0%;width:calc(78.0% - 36.0%)"></i><i class="db-dot perf" style="left:36.0%"></i><i class="db-dot prio" style="left:78.0%"></i></span><span class="db-val">2.44 / 4.12</span></div>
+              <div class="db-row"><span class="db-name">Recruitment</span><span class="db-track"><i class="db-bar" style="left:46.2%;width:calc(87.0% - 46.2%)"></i><i class="db-dot perf" style="left:46.2%"></i><i class="db-dot prio" style="left:87.0%"></i></span><span class="db-val">2.85 / 4.48</span></div>
+              <div class="db-row"><span class="db-name">Internal chapter culture</span><span class="db-track"><i class="db-bar" style="left:43.2%;width:calc(70.8% - 43.2%)"></i><i class="db-dot perf" style="left:43.2%"></i><i class="db-dot prio" style="left:70.8%"></i></span><span class="db-val">2.73 / 3.83</span></div>
+              <div class="db-row"><span class="db-name">Academics</span><span class="db-track"><i class="db-bar" style="left:42.2%;width:calc(69.2% - 42.2%)"></i><i class="db-dot perf" style="left:42.2%"></i><i class="db-dot prio" style="left:69.2%"></i></span><span class="db-val">2.69 / 3.77</span></div>
+              <div class="db-row"><span class="db-name">Sisterhood events</span><span class="db-track"><i class="db-bar" style="left:53.8%;width:calc(72.0% - 53.8%)"></i><i class="db-dot perf" style="left:53.8%"></i><i class="db-dot prio" style="left:72.0%"></i></span><span class="db-val">3.15 / 3.88</span></div>
+              <div class="db-row"><span class="db-name">Philanthropy events</span><span class="db-track"><i class="db-bar" style="left:52.5%;width:calc(64.0% - 52.5%)"></i><i class="db-dot perf" style="left:52.5%"></i><i class="db-dot prio" style="left:64.0%"></i></span><span class="db-val">3.10 / 3.56</span></div>
+              <div class="db-row"><span class="db-name">COB (continuous open bidding)</span><span class="db-track"><i class="db-bar" style="left:64.0%;width:calc(71.2% - 64.0%)"></i><i class="db-dot perf" style="left:64.0%"></i><i class="db-dot prio" style="left:71.2%"></i></span><span class="db-val">3.56 / 3.85</span></div>
+              <div class="db-row"><span class="db-name">Financial transparency</span><span class="db-track"><i class="db-bar" style="left:52.0%;width:calc(55.8% - 52.0%)"></i><i class="db-dot perf" style="left:52.0%"></i><i class="db-dot prio" style="left:55.8%"></i></span><span class="db-val">3.08 / 3.23</span></div>
+              <div class="db-row"><span class="db-name">Chapter programming</span><span class="db-track"><i class="db-bar" style="left:49.0%;width:calc(50.0% - 49.0%)"></i><i class="db-dot perf" style="left:50.0%"></i><i class="db-dot prio" style="left:49.0%"></i></span><span class="db-val">3.00 / 2.96</span></div>
+              <div class="db-row db-axis" aria-hidden="true"><span class="db-name"></span><span class="db-track"><b style="left:0%">1</b><b style="left:25%">2</b><b style="left:50%">3</b><b style="left:75%">4</b><b style="left:100%">5</b></span><span class="db-val"></span></div>
+            </div>
+            <figcaption>Average ratings from 48 members on a 1–5 scale, sorted by the gap between priority and strength.</figcaption>
+          </figure>
+          <p>Social media, Panhellenic involvement, and recruitment followed the same pattern: high priority, low strength. Chapter programming and financial transparency were the lowest priorities, so they could wait.</p>
+          <p>The April survey pointed the same way. Asked what the chapter should emphasize most going forward, 60% of members chose PR and reputation, far ahead of campus involvement at 17%.</p>
+          <figure class="fig grow rv">
+            <div class="metric"><div class="m-head"><span>PR and reputation</span><b>60%</b></div><div class="track"><div class="fill after" style="width:60%"></div></div></div>
+            <div class="metric"><div class="m-head"><span>Campus involvement</span><b>17%</b></div><div class="track"><div class="fill before" style="width:17%"></div></div></div>
+            <div class="metric"><div class="m-head"><span>Panhellenic relations</span><b>12%</b></div><div class="track"><div class="fill before" style="width:12%"></div></div></div>
+            <div class="metric"><div class="m-head"><span>Academics</span><b>7%</b></div><div class="track"><div class="fill before" style="width:7%"></div></div></div>
+            <div class="metric"><div class="m-head"><span>Write-in or more than one</span><b>4%</b></div><div class="track"><div class="fill before" style="width:4%"></div></div></div>
+            <figcaption>"What should the chapter emphasize most going forward?" 100 members, April 2024.</figcaption>
+          </figure>
+          <p>Recruitment data from the previous fall told the same story from the outside. The chapter was allowed to invite every potential new member back each round and released only about 100 across all rounds, so our own cuts weren't what kept us under quota. Of the 247 women at our final round, 96 (about 39%) listed only another chapter on their final ballot, meaning they would rather risk getting no bid at all than join ours. Only 53 (about 21%) ranked us first. The problem was demand, which made reputation the lever that mattered.</p>
+          <figure class="fig grow rv">
+            <div class="stack" role="img" aria-label="247 women at the final round: 96 listed only another chapter, 98 ranked us second, 53 ranked us first.">
+              <span class="s1">96</span><span class="s2">98</span><span class="s3">53</span>
+            </div>
+            <ul class="stack-key">
+              <li><i style="background:var(--lav-100)"></i>Listed only another chapter (39%)</li>
+              <li><i style="background:var(--lav-300)"></i>Ranked us second (40%)</li>
+              <li><i style="background:var(--lav-400)"></i>Ranked us first (21%)</li>
+            </ul>
+            <figcaption>The 247 women at the final round of recruitment.</figcaption>
+          </figure>
+        </section>
+
+        <section id="sigma-insights">
+          <h2>Key insights</h2>
+          <div class="three">
+            <div><b>One cycle</b>A weak reputation made recruitment harder, so the chapter focused on filling its numbers. Without a shared sense of who the chapter was for, its identity stayed inconsistent, which kept the reputation weak. The members who could have changed the chapter's image were also the most likely to self-select out.</div>
+            <div><b>A promise gap</b>Many members joined expecting the polished experience recruitment showed them. When the reality fell short, it showed up as disappointment, negativity, and members leaving.</div>
+            <div><b>Two groups</b>One group felt things were fine, and a larger group wanted the chapter to improve. They needed different messages, and change aimed only at the second group felt like criticism to the first.</div>
+          </div>
+        </section>
+
+        <section id="sigma-recs">
+          <h2>Recommendations</h2>
+          <p>The assessment covered all 11 areas. These four recommendations targeted the biggest gaps:</p>
+          <ol class="recs">
+            <li><b>Recruit for the identity the chapter wants to build</b>A brand attracts people who see themselves in it or aspire to it. The women who could have shifted the chapter's image didn't see themselves in it yet, so they were the most likely to opt out. During recruitment, pair the strongest recruiters with women who are on the fence. Afterward, keep extending bids to them even when they're lukewarm on bid day, and invest in keeping them through the first semester.</li>
+            <li><b>Set brand standards</b>Content pillars, a posting calendar, visual templates, and guidelines for how members represent the chapter in person and online.</li>
+            <li><b>Build Panhellenic relationships</b>More joint events with other chapters, and showing up at theirs, so the chapter becomes part of the campus community instead of sitting outside it.</li>
+            <li><b>Close the promise gap for new members</b>Deliver what recruitment promised in the first semester, communicate clearly, and check in with members who are thinking about leaving.</li>
+          </ol>
+        </section>
+
+        <section id="sigma-outcome">
+          <h2>Outcome</h2>
+          <p>The chapter's branding moved in a clear direction. Our strongest content got noticeably better, and events started to look genuinely polished, with more current theming. The assessment gave the executive council and advisory board an evidence-based, ranked view of where to focus, built from members' own priorities, and advisors responded well to it. I took on the role in late 2023, after these challenges had been building for years. One year wasn't enough to reverse them, but it gave the chapter a clear, evidence-based starting point.</p>
+          <!-- If you have a concrete number (follower or engagement growth, retention), add it to the paragraph above. -->
+        </section>
+
+        <section id="sigma-learned">
+          <h2>What I learned</h2>
+          <ul>
+            <li><strong>Fewer, clearer recommendations get acted on.</strong> Four actions with clear owners are easier to act on than a complete list.</li>
+            <li><strong>Bring stakeholders in early.</strong> People who help shape a plan are more likely to support it, while a finished plan can feel like a critique of their work.</li>
+            <li><strong>Short-term volume can cost long-term brand equity.</strong> Growing membership quickly without a clear identity made the reputation harder to rebuild. Consumer brands face the same trade-off when they discount too often or stretch into too many product lines.</li>
+          </ul>
+          <ul class="chips" aria-label="Methods and tools" style="margin-top:24px"><li>Survey design</li><li>Importance-performance analysis</li><li>Segmentation</li><li>Root-cause analysis</li><li>Content analysis</li><li>Brand strategy</li><li>Stakeholder management</li></ul>
+        </section>
+
+        <a class="next" href="#frito"><div><span>Next case study</span><strong>Why reps resisted a new ordering system</strong></div><span class="arr" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Marketing portfolio · © <span id="yr">2026</span></span>
+    <nav aria-label="Footer"><a href="#work">Work</a><a href="#about">About</a><a href="https://www.linkedin.com/in/miacgraham">LinkedIn</a></nav>
+  </div>
+</footer>
+
+<script>
+(function () {
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  var views = { home: document.getElementById('home'), frito: document.getElementById('frito'), sigma: document.getElementById('sigma') };
+  var baseTitle = document.title;
+  var head = document.querySelector('.site-head');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- Reveal on scroll ---------- */
+  var io = 'IntersectionObserver' in window ? new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); if (e.target.matches('.stat')) countUp(e.target); } });
+  }, { rootMargin: '0px 0px -6% 0px', threshold: 0.05 }) : null;
+  function watch(root) {
+    root.querySelectorAll('.rv:not(.in)').forEach(function (el) { if (io) io.observe(el); else el.classList.add('in'); });
+  }
+  function sweep() {
+    var lim = window.innerHeight;
+    document.querySelectorAll('.rv:not(.in)').forEach(function (el) { if (el.offsetParent !== null && el.getBoundingClientRect().top < lim) { el.classList.add('in'); if (el.matches('.stat')) countUp(el); } });
+  }
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    head.classList.toggle('scrolled', window.scrollY > 8);
+    if (!ticking) { ticking = true; requestAnimationFrame(function () { ticking = false; sweep(); }); }
+  }, { passive: true });
+
+  /* ---------- Count-up stats ---------- */
+  function countUp(stat) {
+    var el = stat.querySelector('[data-count]'); if (!el || el.dataset.done) return; el.dataset.done = 1;
+    var end = parseFloat(el.dataset.count), dec = +(el.dataset.dec || 0), pre = el.dataset.prefix || '';
+    if (reduce) return;
+    var t0 = null, dur = 1100;
+    function step(t) { if (!t0) t0 = t; var k = Math.min(1, (t - t0) / dur); k = 1 - Math.pow(1 - k, 3);
+      el.textContent = pre + (end * k).toFixed(dec); if (k < 1) requestAnimationFrame(step); }
+    requestAnimationFrame(step);
+  }
+
+  /* ---------- Routing: home vs. case study views ---------- */
+  var current = location.hash.slice(1);
+  function route(next) {
+    var h = typeof next === 'string' ? next : location.hash.slice(1);
+    current = h;
+    var caseId = (h === 'frito' || h.indexOf('frito-') === 0) ? 'frito' : (h === 'sigma' || h.indexOf('sigma-') === 0) ? 'sigma' : null;
+    var target = caseId || 'home';
+    Object.keys(views).forEach(function (k) { views[k].hidden = (k !== target); });
+    document.title = caseId ? views[caseId].dataset.title : baseTitle;
+    watch(views[target]);
+    var anchor = h ? document.getElementById(h) : null;
+    if (caseId && (h === caseId)) { var t = views[caseId].querySelector('h1'); if (t) t.focus({ preventScroll: true }); window.scrollTo(0, 0); requestAnimationFrame(function () { window.scrollTo(0, 0); }); }
+    else if (anchor && anchor !== views.home) { anchor.scrollIntoView({ behavior: 'auto' }); }
+    else { window.scrollTo(0, 0); }
+    requestAnimationFrame(sweep);
+    if (caseId) spy(caseId);
+  }
+  window.addEventListener('hashchange', function () { if (location.hash.slice(1) !== current) route(); });
+  // Handle in-page links directly, so they also work inside previews that block normal navigation.
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href^="#"]');
+    if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey) return;
+    var h = a.getAttribute('href').slice(1);
+    e.preventDefault();
+    try { history.pushState(null, '', '#' + h); } catch (err) {}
+    route(h);
+  });
+  window.addEventListener('popstate', function () { route(); });
+
+  /* ---------- Section highlight in the case-study menu ---------- */
+  var spyIO = null;
+  function spy(caseId) {
+    if (spyIO) spyIO.disconnect();
+    if (!('IntersectionObserver' in window)) return;
+    var links = {}; views[caseId].querySelectorAll('.toc a').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+    spyIO = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { Object.keys(links).forEach(function (k) { links[k].classList.toggle('on', k === e.target.id); }); } });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+    views[caseId].querySelectorAll('.prose section').forEach(function (s) { spyIO.observe(s); });
+  }
+
+  /* ---------- The live shelf ---------- */
+  var demo = document.getElementById('shelf-demo');
+  var holes = Array.prototype.slice.call(demo.querySelectorAll('button.hole'));
+  var segs = Array.prototype.slice.call(demo.querySelectorAll('.seg'));
+  var status = demo.querySelector('.shelf-status'), reset = demo.querySelector('.reset');
+  var unit = 'small', counts = holes.map(function () { return 0; });
+  function plural(n, one, many) { return n + ' ' + (n === 1 ? one : many); }
+  function update() {
+    var scans = counts.reduce(function (a, b) { return a + b; }, 0);
+    var spots = counts.filter(function (c) { return c > 0; }).length, skipped = holes.length - spots;
+    holes.forEach(function (h, i) { var c = counts[i]; h.classList.toggle('on', c > 0); h.querySelector('em').textContent = c ? '×' + c : 'Tap'; h.setAttribute('aria-label', h.dataset.name + ': ' + plural(c, 'scan', 'scans')); });
+    if (!scans) { status.textContent = 'Tap the spots that need product the way a rep would. Tap a spot again to ask for more.'; }
+    else {
+      var order = unit === 'small' ? (scans * 2) + ' units, 2 per scan' : plural(scans, 'full case', 'full cases') + ', 1 per scan';
+      status.innerHTML = '<strong>' + plural(scans, 'scan', 'scans') + '</strong> across ' + plural(spots, 'spot', 'spots') + ' orders ' + order + '.' +
+        (skipped ? ' The ' + plural(skipped, 'spot', 'spots') + ' you skipped get nothing on this order.' : ' Every spot that needed product is covered.');
+    }
+    reset.hidden = scans === 0;
+  }
+  holes.forEach(function (h, i) { h.addEventListener('click', function () { counts[i] = (counts[i] + 1) % 4; update(); }); });
+  segs.forEach(function (b) { b.addEventListener('click', function () { unit = b.dataset.unit; segs.forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); }); update(); }); });
+  reset.addEventListener('click', function () { counts = counts.map(function () { return 0; }); update(); });
+
+  route();
+})();
+</script>
+</body>
+</html>
